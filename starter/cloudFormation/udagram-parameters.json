@@ -1,6 +1,10 @@
 [
-	{
-		"ParameterKey": "Add you parameters here",
-		"ParameterValue": "Add you parameters here"
-	}
+  {
+    "ParameterKey": "NetTeamInfra",
+    "ParameterValue": "NetTeamManagedInfra"
+  },
+  {
+    "ParameterKey": "AppName",
+    "ParameterValue": "udagram"
+  }
 ]
