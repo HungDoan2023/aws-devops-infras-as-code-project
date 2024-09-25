@@ -15,6 +15,10 @@
   `./execute-script.sh delete udagram udagram.yml udagram-parameters.json us-east-1`
 
 ## Some screenshot
+* Udagram application Infrastructure diagram
+<br>
+![](./diagram/Udagram-Diagram.png)
+<br>
 * Execution shell script
   ![](./images/execute-yml.png)
 
