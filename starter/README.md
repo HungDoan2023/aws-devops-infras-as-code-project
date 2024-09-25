@@ -16,9 +16,7 @@
 
 ## Some screenshot
 * Udagram application Infrastructure diagram
-<br>
 ![](./images/udagram-diagram.png)
-<br>
 
 * Execution shell script
 ![](./images/execute-yml.png)
