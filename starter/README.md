@@ -17,11 +17,11 @@
 ## Some screenshot
 * Udagram application Infrastructure diagram
 <br>
-![](./diagram/Udagram-Diagram.png)
+![](./images/udagram-diagram.png)
 <br>
 
 * Execution shell script
-  ![](./images/execute-yml.png)
+![](./images/execute-yml.png)
 
 * Stacks has been created succesful
 ![](./images/udagram-stacks.png)
