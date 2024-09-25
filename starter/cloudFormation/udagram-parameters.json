@@ -1,10 +1,10 @@
 [
   {
-    "ParameterKey": "NetTeamInfra",
-    "ParameterValue": "NetTeamManagedInfra"
+    "ParameterKey": "MyExerciseEnvironment",
+    "ParameterValue": "project02-environment"
   },
   {
     "ParameterKey": "AppName",
-    "ParameterValue": "udagram"
+    "ParameterValue": "udagram-application"
   }
 ]

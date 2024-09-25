@@ -1,6 +1,6 @@
 Parameters:
 
-  NetTeamInfra:
+  MyExerciseEnvironment:
     Type: String
     Description: Project name used for tagging resources
 
@@ -33,14 +33,14 @@ Resources:
       EnableDnsHostnames: true
       Tags:
       - Key: Name
-        Value: !Sub ${NetTeamInfra}-VPC
+        Value: !Sub ${MyExerciseEnvironment}-VPC
 
   InternetGateway:
     Type: AWS::EC2::InternetGateway
     Properties:
       Tags:
       - Key: Name
-        Value: !Ref NetTeamInfra
+        Value: !Ref MyExerciseEnvironment
 
   InternetGatewayAttachment:
     Type: AWS::EC2::VPCGatewayAttachment
@@ -57,7 +57,7 @@ Resources:
       MapPublicIpOnLaunch: true
       Tags:
       - Key: Name
-        Value: !Sub ${NetTeamInfra}-public-1
+        Value: !Sub ${MyExerciseEnvironment}-public-1
 
   PublicSubnet2:
     Type: AWS::EC2::Subnet
@@ -68,7 +68,7 @@ Resources:
       MapPublicIpOnLaunch: true
       Tags:
       - Key: Name
-        Value: !Sub ${NetTeamInfra}-public-2
+        Value: !Sub ${MyExerciseEnvironment}-public-2
 
   PrivateSubnet1:
     Type: AWS::EC2::Subnet
@@ -79,7 +79,7 @@ Resources:
       MapPublicIpOnLaunch: false
       Tags:
       - Key: Name
-        Value: !Sub ${NetTeamInfra}-private-1
+        Value: !Sub ${MyExerciseEnvironment}-private-1
 
   PrivateSubnet2:
     Type: AWS::EC2::Subnet
@@ -90,7 +90,7 @@ Resources:
       MapPublicIpOnLaunch: false
       Tags:
       - Key: Name
-        Value: !Sub ${NetTeamInfra}-private-2
+        Value: !Sub ${MyExerciseEnvironment}-private-2
 
   NatGateway1EIP:
     Type: AWS::EC2::EIP
@@ -99,7 +99,7 @@ Resources:
       Domain: vpc
       Tags:
       - Key: Name
-        Value: !Sub ${NetTeamInfra}-nat-gateway-1
+        Value: !Sub ${MyExerciseEnvironment}-nat-gateway-1
 
   NatGateway2EIP:
     Type: AWS::EC2::EIP
@@ -108,7 +108,7 @@ Resources:
       Domain: vpc
       Tags:
       - Key: Name
-        Value: !Sub ${NetTeamInfra}-nat-gateway-2
+        Value: !Sub ${MyExerciseEnvironment}-nat-gateway-2
 
   NatGateway1:
     Type: AWS::EC2::NatGateway
@@ -117,7 +117,7 @@ Resources:
       SubnetId: !Ref PublicSubnet1
       Tags:
       - Key: Name
-        Value: !Sub ${NetTeamInfra}-nat-gateway-1
+        Value: !Sub ${MyExerciseEnvironment}-nat-gateway-1
 
   NatGateway2:
     Type: AWS::EC2::NatGateway
@@ -126,7 +126,7 @@ Resources:
       SubnetId: !Ref PublicSubnet2
       Tags:
       - Key: Name
-        Value: !Sub ${NetTeamInfra}-nat-gateway-2
+        Value: !Sub ${MyExerciseEnvironment}-nat-gateway-2
 
   PublicRouteTable:
     Type: AWS::EC2::RouteTable
@@ -134,7 +134,7 @@ Resources:
       VpcId: !Ref VPC
       Tags:
       - Key: Name
-        Value: !Sub ${NetTeamInfra}-public
+        Value: !Sub ${MyExerciseEnvironment}-public
 
   DefaultPublicRoute:
     Type: AWS::EC2::Route
@@ -162,7 +162,7 @@ Resources:
       VpcId: !Ref VPC
       Tags:
       - Key: Name
-        Value: !Sub ${NetTeamInfra}-private-1
+        Value: !Sub ${MyExerciseEnvironment}-private-1
 
   DefaultPrivateRoute1:
     Type: AWS::EC2::Route
@@ -183,7 +183,7 @@ Resources:
       VpcId: !Ref VPC
       Tags:
       - Key: Name
-        Value: !Sub ${NetTeamInfra}-private-2
+        Value: !Sub ${MyExerciseEnvironment}-private-2
 
   DefaultPrivateRoute2:
     Type: AWS::EC2::Route
@@ -204,42 +204,42 @@ Outputs:
     Description: A reference to the created VPC
     Value: !Ref VPC
     Export:
-      Name: !Sub ${NetTeamInfra}-vpc-id
+      Name: !Sub ${MyExerciseEnvironment}-vpc-id
 
   PublicSubnets:
     Description: A list of the public subnets
     Value: !Join [",", [!Ref PublicSubnet1, !Ref PublicSubnet2]]
     Export:
-      Name: !Sub ${NetTeamInfra}-public-subnets
+      Name: !Sub ${MyExerciseEnvironment}-public-subnets
 
   PrivateSubnets:
     Description: A list of the private subnets
     Value: !Join [",", [!Ref PrivateSubnet1, !Ref PrivateSubnet2]]
     Export:
-      Name: !Sub ${NetTeamInfra}-private-subnets
+      Name: !Sub ${MyExerciseEnvironment}-private-subnets
 
   PublicSubnet1:
     Description: A reference to the public subnet in the 1st Availability Zone
     Value: !Ref PublicSubnet1
     Export:
-      Name: !Sub ${NetTeamInfra}-public-subnet1
+      Name: !Sub ${MyExerciseEnvironment}-public-subnet1
 
   PublicSubnet2:
     Description: A reference to the public subnet in the 2nd Availability Zone
     Value: !Ref PublicSubnet2
     Export:
-      Name: !Sub ${NetTeamInfra}-public-subnet2
+      Name: !Sub ${MyExerciseEnvironment}-public-subnet2
 
   PrivateSubnet1:
     Description: A reference to the private subnet in the 1st Availability Zone
     Value: !Ref PrivateSubnet1
     Export:
-      Name: !Sub ${NetTeamInfra}-private-subnet1
+      Name: !Sub ${MyExerciseEnvironment}-private-subnet1
 
   PrivateSubnet2:
     Description: A reference to the private subnet in the 2nd Availability Zone
     Value: !Ref PrivateSubnet2
     Export:
-      Name: !Sub ${NetTeamInfra}-private-subnet2
+      Name: !Sub ${MyExerciseEnvironment}-private-subnet2
 
 

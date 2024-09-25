@@ -1,7 +1,7 @@
 [
 {
- "ParameterKey": "NetTeamInfra",
- "ParameterValue": "NetTeamManagedInfra"
+ "ParameterKey": "MyExerciseEnvironment",
+ "ParameterValue": "project02-environment"
   },
   {
  "ParameterKey": "myVpcCIDR",
