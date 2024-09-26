@@ -86,7 +86,9 @@ Resources:
 
             # Copy index.html to the Nginx web directory
             sudo rm -r $WEB_DIR/index.*
-            aws s3 cp s3://udagram-application-app-storage-bucket/index.html . $WEB_DIR
+            aws s3 cp s3://udagram-application-app-storage-bucket/index.html .
+
+            sudo cp index.html $WEB_DIR
 
             # Reload Nginx to apply changes
             sudo systemctl reload nginx
