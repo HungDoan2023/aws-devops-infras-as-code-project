@@ -1,4 +1,3 @@
-
 Parameters:
   MyExerciseEnvironment:
     Description: An MyExerciseEnvironment name that will be prefixed to resource names.
@@ -92,7 +91,6 @@ Resources:
 
             sudo chown -R www-data:www-data .
             sudo systemctl start apache2. service
-
         ImageId: ami-053b0d53c279acc90
         SecurityGroupIds:
         - !Ref UdagramServerSecGroup
