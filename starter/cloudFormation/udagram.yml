@@ -79,15 +79,17 @@ Resources:
             #!/bin/bash
             sudo apt-get update -y
             sudo apt-get install -y nginx
+            service nginx start
 
-            aws s3 cp s3://udagram-application-app-storage-bucket/index.html .
+            # Define the directory where the index.html will be placed
+            WEB_DIR="/var/www/html"
 
-            sudo rm ~/../../var/www/html/index.html
-            sudo mv -v ./src/* ~/../../var/www/html
-            cd ~/ ../../var/www/html
+            # Copy index.html to the Nginx web directory
+            sudo rm -r $WEB_DIR/index.*
+            aws s3 cp s3://udagram-application-app-storage-bucket/index.html . $WEB_DIR
 
-            sudo chown -R www-data:www-data .
-            sudo systemctl restart nginx
+            # Reload Nginx to apply changes
+            sudo systemctl reload nginx
 
         ImageId: ami-053b0d53c279acc90
         SecurityGroupIds:
