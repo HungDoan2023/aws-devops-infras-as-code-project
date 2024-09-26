@@ -79,12 +79,8 @@ Resources:
             #!/bin/bash
             sudo apt update
             sudo apt install unzip apache2 -y
-            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-            unzip awscliv2.zip
-            ./aws/install
 
-            aws s3 cp s3://udagram-application-app-storage-bucket/index.zip .
-            unzip -o index.zip
+            aws s3 cp s3://udagram-application-app-storage-bucket/index.html .
             sudo rm ~/../../var/www/html/index.html
             sudo mv -v ./src/* ~/../../var/www/html
             cd ~/ ../../var/www/html
