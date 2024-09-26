@@ -75,7 +75,25 @@ Resources:
       LaunchTemplateName: !Sub "${AppName}-web-servers"
       LaunchTemplateData:
         UserData:
-          Fn::Base64: !Sub "#!/bin/bash\nsudo apt update\nsudo apt install unzip apache2 -y\ncurl \"https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip\" -o \"awscliv2.zip\"\nunzip awscliv2.zip\n./aws/install\n#magic___^_^___line\naws s3 cp s3://udagram-application-app-storage-bucket/index.zip . \nunzip -o index.zip\nsudo rm ~/../../var/www/html/index.html\nsudo mv -v ./src/* ~/../../var/www/html\ncd ~/../../var/www/html\n#magic___^_^___line\nsudo chown -R www-data:www-data .\nsudo systemctl start apache2.service\n#magic___^_^___line\n"
+          Fn::Base64: !Sub |
+            #!/bin/bash
+
+            sudo apt update
+            sudo apt install unzip apache2 -y
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            ./aws/install
+
+            aws s3 cp s3://udagram-application-app-storage-bucket/index.zip .
+            unzip -o index.zip
+
+            sudo rm ~/../../var/www/html/index.html
+            sudo mv -v ./src/* ~/../../var/www/html
+            cd ~/../../var/www/html
+
+            sudo chown -R www-data:www-data .
+            sudo systemctl start apache2.service
+
         ImageId: ami-053b0d53c279acc90
         SecurityGroupIds:
         - !Ref UdagramServerSecGroup
@@ -84,6 +102,7 @@ Resources:
         - DeviceName: "/dev/sdk"
           Ebs:
             VolumeSize: 10
+            DeleteOnTermination: true
             VolumeType: gp2
         IamInstanceProfile:
           Name: !Ref UdagramAppInstanceProfile
