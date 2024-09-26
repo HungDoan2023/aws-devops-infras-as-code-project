@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>It works! Udagram, Udacity</title>
+</head>
+<body>
+    <h1>Hi Coach, my name is Hung, This is project 2. now it works well! Udagram, Udacity</h1>
+    <h2>This page was stored in S3 Bucket, and then it was copied and pasted to apache service for running</h2>
+</body>
+</html>
