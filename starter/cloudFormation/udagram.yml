@@ -76,7 +76,7 @@ Resources:
       LaunchTemplateName: !Sub "${AppName}-web-servers"
       LaunchTemplateData:
         UserData:
-          Fn::Base64: !Sub          
+          Fn::Base64: !Sub
             #!/bin/bash
             sudo apt update
             sudo apt install unzip apache2 -y
