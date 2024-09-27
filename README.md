@@ -28,7 +28,7 @@
 ![](./starter/images/s3-bucket.png)
 
 * Static web content
-![](./starter/images/static-web.png)
+![](./starter/images/static-web-1.png)
 
 ## Static Web Link
-http://udagra-myloa-mz4rmsztul5u-569572535.us-east-1.elb.amazonaws.com/
+http://udagra-myloa-hqdf7wfniudc-894881466.us-east-1.elb.amazonaws.com/index.htm
