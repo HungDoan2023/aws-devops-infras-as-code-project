@@ -77,16 +77,18 @@ Resources:
         UserData:
           Fn::Base64: !Sub |
             #!/bin/bash
+            apt-get update -y
+            sudo apt-get install nginx -y
+            service nginx start
 
-            sudo apt update
-            sudo apt install unzip apache2 -y
-            sudo rm ~/../../var/www/html/index.html
-            aws s3 cp s3://udagram-application-app-storage-bucket/index.index /var/www/html .
+            # Define the directory where the index.htm will be placed
+            WEB_DIR="/var/www/html"
 
-            cd ~/../../var/www/html
+            # Copy S3 index.htm to $WEB_DIR
+            aws s3 cp s3://udagram-application-app-storage-bucket/index.htm $WEB_DIR
 
-            sudo chown -R www-data:www-data .
-            sudo systemctl start apache2.service
+            # Reload Nginx to apply changes
+            sudo systemctl reload nginx
 
         ImageId: ami-053b0d53c279acc90
         SecurityGroupIds:
